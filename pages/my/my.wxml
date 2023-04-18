@@ -1,0 +1,60 @@
+<view class="container">
+    <view class="userinfo">
+        <block wx:if="{{!hasUserInfo}}">
+            <view data-weui-theme="{{theme}}">
+                <button
+                    class="avatar-wrapper"
+                    open-type="chooseAvatar"
+                    bind:chooseavatar="onChooseAvatar"
+                >
+                    <image
+                        class="avatar"
+                        src="{{avatarUrl}}"
+                    ></image>
+                </button>
+                <mp-form id="mpform" rules="{{rules}}" models="{{formData}}" bindsuccess="onSuccess" bindfail="onFailed">
+                    <mp-cells>
+                        <mp-cell title="昵称" prop="nickname" show-error>
+                            <input
+                                type="nickname"
+                                data-field="nickname"
+                                class="weui-input"
+                                placeholder="请输入昵称"
+                                bindinput="onInputChange"
+                            />
+                        </mp-cell>
+                        <view slot="footer" class="weui-cells__tips">
+                            {{footerText}}
+                        </view>
+                    </mp-cells>
+                    <button
+                        class="confirm-btn"
+                        type="primary"
+                        bindtap="onSubmit"
+                    > 确认 </button>
+                </mp-form>
+            </view>
+        </block>
+        <block wx:else>
+            <view class="header">
+                <image
+                    bindtap="bindViewTap"
+                    class="userinfo-avatar"
+                    src="{{avatarUrl}}"
+                    mode="cover"
+                ></image>
+                <text class="userinfo-nickname">{{formData.nickname}}</text>
+            </view>
+            <view class="options">
+                <view class="item">
+                    我的分享
+                    <text>></text>
+                </view>
+                <view class="item">
+                    设置
+                    <text>></text>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>

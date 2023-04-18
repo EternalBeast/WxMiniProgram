@@ -1,0 +1,25 @@
+<!--index.wxml-->
+<view class="header">
+  <input type="text" class="header-input" placeholder="AngularJS · MySQL · Java" placeholder-class="header-input-placeholder" bindinput="handleInputChange" />
+  <icon type="search" class="header-input-icon" size="42rpx" wx:if="{{ showIcon }}" />
+</view>
+
+<view class="nav">
+  <view class="nav-item" wx:for="{{ tabs }}" wx:key="type" bindtap="changeType" data-type="{{ item.type }}">
+    <image class="nav-item-img" src="../../resources/{{ item.type }}.png" />
+    {{ item.name }}
+    <view class="nav-active nav-active-{{ item.type }}" hidden="{{ type !== item.type }}" />
+  </view>
+</view>
+
+<include src="./recommend" />
+
+<block wx:if="{{ type === 'project' }}">
+  实战内容
+</block>
+
+<block wx:if="{{ type === 'path' }}">
+  路径内容
+</block>
+
+<include src="./activity" />

@@ -1,0 +1,60 @@
+<!--pages/detail/detail.wxml-->
+<view class="container">
+  <view class="header">
+    <view class="header-title">
+      {{courseData.title}}
+    </view>
+    <image
+      class="header-img"
+      src="{{courseData.imgUrl}}"
+      mode="aspectFill"
+    />
+    <view class="header-info">
+      <text class="info-level">{{courseData.level}}</text>
+      <text class="info-sales">{{courseData.sales}}人学</text>
+    </view>
+  </view>
+
+  <view class="desc">
+    <view class="desc-title">
+      简介
+    </view>
+    <view class="desc-content">
+      {{courseData.desc}}
+    </view>
+  </view>
+  <view class="divide" />
+  <view class="eval">
+    <view class="eval-title">
+      评价
+      <text class="eval-title-number">20</text>
+    </view>
+    <view class="eval-item" wx:for="{{courseData.evaluation}}" wx:key="name">
+        <view class="item-user">
+          <image
+            class="user-img"
+            src="{{item.imgUrl}}"
+          />
+          <view class="user-name">
+            {{item.name}}
+            <view class="user-time">
+              {{item.time}}
+            </view>
+          </view>
+          <view class="user-stars">
+            ★★★★★
+          </view>
+        </view>
+        <view class="item-text">
+          {{item.content}}
+        </view>
+    </view>
+  </view>
+</view>
+
+<view class="bar">
+  <view class="price">
+    {{courseData.price}}收藏
+  </view>
+  <view class="cart" bindtap="addToCart">加入收藏夹</view>
+</view>

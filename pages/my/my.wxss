@@ -1,0 +1,79 @@
+.container {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100vh;
+    padding-top: 30rpx;
+}
+
+.userinfo {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+    padding: 0 30rpx;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: linear-gradient(180deg, #fd5c33 0, #f12e2e 100%);
+    padding: 20rpx 0 60rpx;
+    border-radius: 20rpx;
+    color: #FFFFFF;
+}
+
+.userinfo-avatar {
+    overflow: hidden;
+    width: 128rpx;
+    height: 128rpx;
+    margin: 20rpx;
+    border-radius: 50%;
+}
+
+.usermotto {
+    margin-top: 200px;
+}
+
+.options {
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 40rpx;
+    padding: 0 60rpx;
+    border-radius: 20rpx;
+    box-shadow: 0 0 1rpx 1rpx #fd5b3375;
+}
+
+.item {
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1rpx solid #fd5b339a;
+}
+
+.item:last-child {
+    border: none;
+}
+
+.avatar-wrapper {
+    padding: 0;
+    width: 56px !important;
+    border-radius: 8px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.avatar {
+    display: block;
+    width: 56px;
+    height: 56px;
+}
+
+.confirm-btn {
+    margin-top: 60rpx;
+}
+
+.weui-cells__tips {
+    color: red;
+}

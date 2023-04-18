@@ -1,0 +1,69 @@
+<!--pages/hot/hot.wxml-->
+<view class="tabs">
+  <view
+    class="tab {{ (activeTab === 'project') ? 'tab-active' : '' }}"
+    data-type="project"
+    bindtap="changeTab"
+  >
+    实战排行
+    <view
+      class="tab-active-icon"
+      hidden="{{ activeTab !== 'project' }}"
+    />
+  </view>
+  <view
+    class="tab {{ (activeTab === 'path') ? 'tab-active' : '' }}"
+    data-type="path"
+    bindtap="changeTab"
+  >
+    路径排行
+    <view
+      class="tab-active-icon"
+      hidden="{{ activeTab !== 'path' }}"
+    />
+  </view>
+</view>
+
+<view class="time">
+  <view class="time-switch">
+    <view
+      class="time-switch-btn {{ (switchTime === 'week') ? 'switch-active' : '' }}"
+      data-time="week"
+      bindtap="changeTime"
+    >
+      周
+    </view>
+    <view
+      class="time-switch-btn {{ (switchTime === 'month') ? 'switch-active' : '' }}"
+      data-time="month"
+      bindtap="changeTime"
+    >
+      月
+    </view>
+  </view>
+</view>
+
+<view class="list">
+  <view
+    class="list-item"
+    wx:for="{{currentList}}"
+    wx:key="title"
+  >
+    <image
+      class="item-img"
+      src="{{item.imgUrl}}"
+    />
+    <view class="item-title">{{item.title}}</view>
+    <image
+      class="item-icon"
+      src="../../resources/{{index === 0 ? 'first': (index === 1 ?'second':'third')}}.png"
+      wx:if="{{index < 3}}"
+    />
+    <view
+      class="item-number"
+      wx:if="{{index > 2}}"
+    >
+      {{index + 1}}
+    </view>
+  </view>
+</view>

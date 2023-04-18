@@ -1,0 +1,43 @@
+<view class="container">
+  <checkbox-group class="cart-list" bindchange="checkboxChange">
+    <view
+      class="list-item"
+      wx:for="{{cartList}}"
+      wx:key="id"
+      data-id="{{item.id}}"
+    >
+      <label class="item-label">
+        <checkbox
+          value="{{item.id}}"
+          checked="{{item.checked}}"
+          color="red"
+        />
+        <image
+          class="item-img"
+          src="{{item.imgUrl}}"
+        />
+        <view class="item-title">
+          {{item.title}}
+        </view>
+        <view class="item-price">
+          {{item.price}}赞
+        </view>
+      </label>
+    </view>
+  </checkbox-group>
+  <view class="empty" wx:if="{{cartList.length === 0}}">
+    收藏夹空空如也~~
+  </view>
+</view>
+
+<view class="bar" wx:if="{{totalPrice > 0}}">
+  <view class="total-price">
+    {{totalPrice}}赞
+  </view>
+  <view class="delete" bindtap="handleRemoveTap">
+    移出收藏夹
+  </view>
+  <view class="buy" bindtap="handleBuyTap">
+    去分享
+  </view>
+</view>

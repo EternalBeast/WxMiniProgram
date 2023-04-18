@@ -1,0 +1,46 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/cart/cart",
+    "pages/my/my",
+    "pages/hot/hot",
+    "pages/detail/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "学习推荐",
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "resources/home.png",
+        "selectedIconPath": "resources/home-active.png"
+      },
+      {
+        "pagePath": "pages/cart/cart",
+        "text": "收藏夹",
+        "iconPath": "resources/collection.png",
+        "selectedIconPath": "resources/collection-active.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "resources/my.png",
+        "selectedIconPath": "resources/my-active.png"
+      }
+    ],
+    "color": "#B7BBBF",
+    "selectedColor": "#2B333B"
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json",
+  "lazyCodeLoading": "requiredComponents",
+  "useExtendedLib": {
+    "weui": true
+  }
+}

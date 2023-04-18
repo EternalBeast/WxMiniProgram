@@ -1,0 +1,73 @@
+<block wx:if="{{ type === 'recommend' }}">
+  <swiper
+    class="swiper"
+    previous-margin="18rpx"
+    next-margin="18rpx"
+    circular="true"
+    autoplay="true"
+  >
+    <swiper-item
+      class="swiper-item"
+      wx:for="{{ swiperList }}"
+      wx:key="id"
+    >
+      <image
+        class="swiper-img"
+        src="{{ item.imgUrl }}"
+      />
+    </swiper-item>
+  </swiper>
+
+  <view class="project">
+    <view class="project-title">实战推荐</view>
+    <navigator url="/pages/hot/hot">
+      <view class="project-more">查看更多 >></view>
+    </navigator>
+    <view
+      class="project-empty"
+      hidden="{{ !(searchList && searchList.length === 0) }}"
+    >
+      无搜索结果
+    </view>
+    <view
+      class="project-item"
+      wx:for="{{ searchList ? searchList : courses }}"
+      wx:key="id"
+      data-id="{{item.id}}"
+      bindtap="handleCourseTap"
+    >
+      <image
+        class="project-img"
+        src="{{ item.imgUrl }}"
+      />
+      <view class="project-content">
+        <view class="project-item-title">
+          {{ item.title }}
+        </view>
+        <view class="project-item-tags">
+          <view
+            class="project-item-price"
+            wx:if="{{ !item.promotion }}"
+          >{{ item.price }}</view>
+          <view
+            class="project-item-price-active"
+            wx:if="{{ item.promotion }}"
+          >{{ item.price }}</view>
+          <view
+            class="project-item-notice"
+            wx:if="{{ item.notice }}"
+          >{{ item.notice }}</view>
+          <view class="project-item-level">{{ item.level }}</view>
+          <view class="project-item-user">
+            <image
+              class="project-item-icon"
+              src="../../resources/user.png"
+              mode="aspectFit"
+            />
+            {{ item.sales }}
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>
